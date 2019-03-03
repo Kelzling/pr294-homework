@@ -1,7 +1,17 @@
+<?php
+function checkNumber($number) {
+    if ($number % 2 == 1) {
+        return 'Odd Number';
+    } else {
+        return 'Even Number';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Check Numbers</title>
+    <title>Check Numbers</title>
 </head>
 <body>
 <form action="checkNumber.php" method="POST">
@@ -10,22 +20,13 @@
 <input type="submit" value="check number" />
 
 <p><?php
-
 $number = 0;
 
 if (isset($_POST['inputNumber'])) {
-	$number = $_POST['inputNumber'];
-	echo "$number = " . CheckNumber($number);
-}
-
-function CheckNumber($number) {
-	if ($number % 2 == 1) {
-		return 'Odd Number';
-	} else {
-		return 'Even Number';
-	}
+    $number = $_POST['inputNumber'];
+    echo "$number = " . checkNumber($number);
 }
 ?></p>
-	
+    
 </body>
 </html>

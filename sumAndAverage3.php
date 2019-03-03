@@ -1,21 +1,27 @@
 <?php
-function printSumAndAverage() {
+function printSumAndAverage()
+{
     $maxValue = $_POST['newMaxNum'];
     $sum = calcSum($maxValue);
     $average = calcAverage($sum, $maxValue);
     echo "Max value entered was $maxValue <br/> the sum of all numbers up to and including $maxValue is $sum and the average is $average";
 }
 
-function calcSum($maxValue) {
+function calcSum($maxValue)
+{
     $sum = 0;
-    for ($num = 0; $num <= $maxValue; $num++) {
+    $num = 0;
+    
+    do {
         $sum = $sum + $num;
-    }
+        $num++;
+    } while ($num <= $maxValue);
     
     return $sum;
 }
 
-function calcAverage($sum, $maxValue) {
+function calcAverage($sum, $maxValue)
+{
     $average = $sum / $maxValue;
     
     return $average;
@@ -25,10 +31,10 @@ function calcAverage($sum, $maxValue) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sums and Averages</title>
+    <title>Sums and Averages 3</title>
 </head>
 <body>
-<form action="sumAndAverage.php" method="POST">
+<form action="sumAndAverage3.php" method="POST">
 <p>Press 'calculate' to see the sum of all numbers up to your entered number, and the average.</p>
 <label for="newMaxNum">Enter Max Number: </label>
 <input type="text" name="newMaxNum" id="newMaxNum" />

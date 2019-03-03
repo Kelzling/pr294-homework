@@ -1,7 +1,17 @@
+<?php
+function checkMark($mark) {
+    if ($mark >= 50) {
+        return 'PASS';
+    } else { 
+        return 'FAIL';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Check Marks</title>
+    <title>Check Marks</title>
 </head>
 <body>
 <form action="checkMark.php" method="POST">
@@ -10,23 +20,14 @@
 <input type="submit" value="check mark" />
 
 <p><?php
-
 $mark = 0;
 
 if (isset($_POST['inputMark'])){
-	$mark = $_POST['inputMark'];
-	CheckMark($mark);
+    $mark = $_POST['inputMark'];
+    echo "Mark entered: $mark <br/> Status: ";
+    $pass = checkMark($mark);
+    echo $pass;
 }
-
-function CheckMark($mark) {
-	echo "Mark entered: $mark <br/> Status: ";
-	if ($mark >= 50) {
-		echo 'PASS';
-	} else { 
-		echo 'FAIL';
-	}
-}
-
 ?></p>
 </body>
 </html>
